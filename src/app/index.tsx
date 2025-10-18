@@ -9,6 +9,6 @@ if (rootEl) {
   root.render(
     <React.StrictMode>
       <h2>Test</h2>
-    </React.StrictMode>
+    </React.StrictMode>,
   );
 }
