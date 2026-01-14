@@ -3,20 +3,31 @@
     "jsx": "react-jsx",
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "target": "ES6",
+    "target": "ES2020",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "allowJs": true,
-    "module": "commonjs",
+    "module": "ESNext",
     "skipLibCheck": true,
     "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "noImplicitAny": true,
     "sourceMap": true,
-    "baseUrl": ".",
+    "baseUrl": "src",
     "outDir": "dist",
     "moduleResolution": "node",
     "resolveJsonModule": true,
+    "isolatedModules": true,
     "paths": {
-      "*": ["node_modules/*"]
+      "i18n": ["./render/i18n"],
+      "i18n/*": ["./render/i18n/*"],
+      "components": ["./render/components"],
+      "components/*": ["./render/components/*"],
+      "containers": ["./render/containers"],
+      "containers/*": ["./render/containers/*"],
+      "extensions": ["./render/extensions"],
+      "extensions/*": ["./render/extensions/*"]
     }
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist", ".webpack"]
 }
