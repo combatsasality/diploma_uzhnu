@@ -37,12 +37,12 @@ export default [
     rules: {
       ...tsEslint.configs.recommended.rules,
       "@typescript-eslint/no-unused-vars": [
-        "error", 
-        { 
+        "error",
+        {
           argsIgnorePattern: "^_",
           varsIgnorePattern: "^_",
-          destructuredArrayIgnorePattern: "^_"
-        }
+          destructuredArrayIgnorePattern: "^_",
+        },
       ],
       "@typescript-eslint/no-explicit-any": "warn",
       "@typescript-eslint/no-empty-object-type": "off",
