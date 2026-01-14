@@ -9,7 +9,7 @@
     "package": "electron-forge package",
     "make": "electron-forge make",
     "publish": "electron-forge publish",
-    "lint": "eslint --ext .ts,.tsx .",
+    "lint": "eslint --ext .ts,.tsx . --fix",
     "format": "prettier --write ."
   },
   "keywords": [],
@@ -31,6 +31,8 @@
     "@electron-forge/plugin-fuses": "^7.11.1",
     "@electron-forge/plugin-webpack": "^7.11.1",
     "@electron/fuses": "^1.8.0",
+    "@mikro-orm/cli": "^6.6.4",
+    "@tailwindcss/postcss": "^4.1.18",
     "@types/react": "^19.2.8",
     "@types/react-dom": "^19.2.3",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
@@ -42,23 +44,28 @@
     "eslint-plugin-import": "^2.32.0",
     "fork-ts-checker-webpack-plugin": "^7.3.0",
     "node-loader": "^2.1.0",
+    "postcss": "^8.5.6",
     "postcss-loader": "^8.2.0",
     "prettier": "3.6.2",
     "style-loader": "^3.3.4",
+    "tailwindcss": "^4.1.18",
     "ts-loader": "^9.5.4",
     "typescript": "~5.9.3"
   },
   "dependencies": {
-    "@tailwindcss/postcss": "^4.1.18",
+    "@mikro-orm/core": "^6.6.4",
+    "@mikro-orm/migrations": "^6.6.4",
+    "@mikro-orm/reflection": "^6.6.4",
+    "@mikro-orm/sqlite": "^6.6.4",
     "antd": "^6.2.0",
+    "better-sqlite3": "^12.6.0",
     "electron-squirrel-startup": "^1.0.1",
     "i18next": "^25.7.4",
-    "postcss": "^8.5.6",
     "react": "^19.2.3",
     "react-dnd": "^16.0.1",
+    "react-dnd-html5-backend": "^16.0.1",
     "react-dom": "^19.2.3",
     "react-i18next": "^16.5.3",
-    "react-router": "^7.12.0",
-    "tailwindcss": "^4.1.18"
+    "react-router": "^7.12.0"
   }
 }

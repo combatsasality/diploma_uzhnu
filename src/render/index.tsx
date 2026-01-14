@@ -7,7 +7,9 @@ import { createHashRouter, RouterProvider } from "react-router";
 import "./index.css";
 import "./i18n";
 import { lightTheme } from "./theme";
-import { EditView } from "containers";
+import { EditView } from "./containers";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
 
 const router = createHashRouter([
   {
@@ -27,7 +29,9 @@ if (rootEl) {
           ...lightTheme,
         }}
       >
-        <RouterProvider router={router} />
+        <DndProvider backend={HTML5Backend}>
+          <RouterProvider router={router} />
+        </DndProvider>
       </ConfigProvider>
     </React.StrictMode>,
   );

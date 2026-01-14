@@ -17,7 +17,12 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "declaration": true,
     "paths": {
+      "db": ["./db"],
+      "db/*": ["./db/*"],
       "i18n": ["./render/i18n"],
       "i18n/*": ["./render/i18n/*"],
       "components": ["./render/components"],

@@ -1,7 +1,7 @@
 import type { FC } from "react";
 import { Button as AntButton } from "antd";
 import { Trans } from "react-i18next";
-import { TranslationProps } from "components/Text";
+import { TranslationProps } from "components";
 import { BaseButtonProps } from "antd/es/button/Button";
 
 type ButtonProps = TranslationProps & Omit<BaseButtonProps, "children">;

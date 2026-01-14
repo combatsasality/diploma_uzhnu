@@ -49,6 +49,7 @@ export const rendererConfig: Configuration = {
       i18n: path.resolve(__dirname, "src/render/i18n"),
       components: path.resolve(__dirname, "src/render/components"),
       containers: path.resolve(__dirname, "src/render/containers"),
+      extensions: path.resolve(__dirname, "src/render/extensions"),
     },
   },
 };

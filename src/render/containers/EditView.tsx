@@ -1,6 +1,6 @@
 import { Splitter } from "antd";
-import { Text } from "../components";
-import { FileViewer } from "../extensions";
+import { Text } from "components";
+import { FileViewer } from "extensions";
 
 const Panel = Splitter.Panel;
 
