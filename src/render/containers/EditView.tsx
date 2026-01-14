@@ -1,4 +1,5 @@
 import { Splitter } from "antd";
+
 import { Text } from "components";
 import { FileViewer } from "extensions";
 

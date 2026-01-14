@@ -1,7 +1,8 @@
-import { Text } from "components";
 import { FC } from "react";
 import { useDrop } from "react-dnd";
 import { NativeTypes } from "react-dnd-html5-backend";
+
+import { Text } from "components";
 
 export const FileViewer: FC = () => {
   const [{ opacity }, drop] = useDrop(() => ({
