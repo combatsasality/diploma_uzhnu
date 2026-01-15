@@ -51,6 +51,7 @@ export const rendererConfig: Configuration = {
       containers: path.resolve(__dirname, "src/renderer/containers/"),
       extensions: path.resolve(__dirname, "src/renderer/extensions/"),
       shared: path.resolve(__dirname, "src/shared/"),
+      contexts: path.resolve(__dirname, "src/renderer/contexts/"),
     },
   },
 };

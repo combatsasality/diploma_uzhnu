@@ -1,12 +1,20 @@
+import { useEffect } from "react";
 import { Splitter } from "antd";
 import { Text } from "components";
 import { FileViewer } from "extensions";
+import { useProject } from "contexts";
 
 const Panel = Splitter.Panel;
 
 export const EditView = () => {
-  const project = window.project.getOrCreate({ name: "New Project" });
-  console.log(project);
+  const { setProject } = useProject();
+
+  useEffect(() => {
+    window.project.getOrCreate({ name: "New Project" }).then((proj) => {
+      setProject(proj);
+      console.log(proj);
+    });
+  }, []);
 
   return (
     <Splitter orientation="vertical">

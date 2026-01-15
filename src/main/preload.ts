@@ -1,6 +1,4 @@
-// See the Electron documentation for details on how to use preload scripts:
-// https://www.electronjs.org/docs/latest/tutorial/process-model#preload-scripts
-import { contextBridge } from "electron";
+import { contextBridge, ipcRenderer } from "electron";
 import { invoke } from "shared";
 
 export const project = {
@@ -8,6 +6,12 @@ export const project = {
     invoke("prisma:project:getOrCreate", args),
 };
 
+export const projectFile = {
+  create: (args: ProjectFile) => invoke("prisma:projectFile:create", args),
+};
+
 contextBridge.exposeInMainWorld("project", project);
+contextBridge.exposeInMainWorld("projectFile", projectFile);
 
 export type ProjectAPI = typeof project;
+export type ProjectFileAPI = typeof projectFile;

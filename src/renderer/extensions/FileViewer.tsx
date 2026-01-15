@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { useDrop } from "react-dnd";
 import { NativeTypes } from "react-dnd-html5-backend";
 
@@ -9,7 +9,10 @@ import { FileImageOutlined } from "@ant-design/icons/lib";
 export const FileViewer: FC = () => {
   const [{ opacity }, drop] = useDrop(() => ({
     accept: [NativeTypes.FILE],
-    drop: (item) => console.log(item),
+    drop: (item: { files: File[] }) => {
+      const f = item.files[0] as File & { path?: string };
+      console.log("absolute", f.path);
+    },
     collect: (monitor) => ({
       opacity: monitor.isOver() ? 0.5 : 1,
     }),

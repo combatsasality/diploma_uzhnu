@@ -1,7 +1,11 @@
 export type IpcHandlers = {
   "prisma:project:getOrCreate": {
     args: [{ name: string }];
-    result: { id: string; name: string };
+    result: Project;
+  };
+  "prisma:projectFile:create": {
+    args: [ProjectFile];
+    result: ProjectFile;
   };
 };
 
