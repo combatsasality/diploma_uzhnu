@@ -6,7 +6,7 @@ import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 
 import "./index.css";
-// import "./i18n";
+import "./i18n";
 import { lightTheme } from "./theme";
 import { EditView } from "./containers";
 

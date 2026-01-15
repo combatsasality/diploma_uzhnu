@@ -22,6 +22,7 @@ export const lightTheme: ThemeConfig = {
     colorLinkActive: "#5A0059",
 
     colorBorder: "rgba(31, 26, 29, 0.12)",
+    fontFamily: "Tasa, sans-serif",
   },
   components: {
     Button: {
@@ -61,6 +62,7 @@ export const darkTheme: ThemeConfig = {
     colorLinkActive: "#8A2758",
 
     colorBorder: "rgba(243, 238, 241, 0.14)",
+    fontFamily: "Tasa, sans-serif",
   },
   components: {
     Button: {

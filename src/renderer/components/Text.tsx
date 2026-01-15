@@ -46,7 +46,6 @@ export const Text: FC<TextComponentProps> = (props) => {
   ) : (
     props.children
   );
-
   switch (props.preset) {
     case "title": {
       const { preset: _preset, ...titleProps } = props;

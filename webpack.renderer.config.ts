@@ -4,9 +4,38 @@ import { rules } from "./webpack.rules";
 import { plugins } from "./webpack.plugins";
 import path from "path";
 
+// CSS rules with PostCSS support
 rules.push({
   test: /\.css$/,
-  use: [{ loader: "style-loader" }, { loader: "css-loader" }],
+  exclude: /\.module\.css$/,
+  use: [
+    { loader: "style-loader" },
+    {
+      loader: "css-loader",
+      options: {
+        importLoaders: 1,
+      },
+    },
+    { loader: "postcss-loader" },
+  ],
+});
+
+// CSS Modules with PostCSS support
+rules.push({
+  test: /\.module\.css$/,
+  use: [
+    { loader: "style-loader" },
+    {
+      loader: "css-loader",
+      options: {
+        modules: {
+          localIdentName: "[name]__[local]--[hash:base64:5]",
+        },
+        importLoaders: 1,
+      },
+    },
+    { loader: "postcss-loader" },
+  ],
 });
 
 export const rendererConfig: Configuration = {
