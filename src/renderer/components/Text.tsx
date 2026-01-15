@@ -14,7 +14,9 @@ export interface TranslationProps {
   children?: React.ReactNode;
   tx?: TxKeyPath;
   txOptions?: Record<string, unknown>;
-  txFormatting?: { [tagName: string]: React.ReactElement } | React.ReactElement[];
+  txFormatting?:
+    | { [tagName: string]: React.ReactElement }
+    | React.ReactElement[];
   className?: string;
 }
 
@@ -37,7 +39,7 @@ type TextComponentProps =
 export const Text: FC<TextComponentProps> = (props) => {
   const translatedChildren = props.tx ? (
     <Trans
-      i18nKey={props.tx as TxKeyPath}
+      i18nKey={props.tx as any}
       values={props.txOptions}
       components={props.txFormatting}
     />

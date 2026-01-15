@@ -1,38 +1,26 @@
 {
   "compilerOptions": {
     "jsx": "react-jsx",
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "target": "ES2020",
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "target": "ES6",
     "allowJs": true,
-    "module": "ESNext",
+    "module": "commonjs",
     "skipLibCheck": true,
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
     "noImplicitAny": true,
     "sourceMap": true,
-    "baseUrl": "src",
+    "baseUrl": ".",
     "outDir": "dist",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "isolatedModules": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "declaration": true,
     "paths": {
-      "db": ["./db"],
-      "db/*": ["./db/*"],
-      "i18n": ["./render/i18n"],
-      "i18n/*": ["./render/i18n/*"],
-      "components": ["./render/components"],
-      "components/*": ["./render/components/*"],
-      "containers": ["./render/containers"],
-      "containers/*": ["./render/containers/*"],
-      "extensions": ["./render/extensions"],
-      "extensions/*": ["./render/extensions/*"]
-    }
+      "*": ["node_modules/*"],
+      "i18n": ["src/renderer/i18n"],
+      "components": ["src/renderer/components"],
+      "containers": ["src/renderer/containers"],
+      "extensions": ["src/renderer/extensions"]
+    },
+    "forceConsistentCasingInFileNames": true,
+    "strict": true
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist", ".webpack"]
+  "include": ["src/**/*"]
 }
