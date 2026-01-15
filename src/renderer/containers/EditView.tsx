@@ -5,6 +5,9 @@ import { FileViewer } from "extensions";
 const Panel = Splitter.Panel;
 
 export const EditView = () => {
+  const project = window.project.getOrCreate({ name: "New Project" });
+  console.log(project);
+
   return (
     <Splitter orientation="vertical">
       <Panel defaultSize="60%" min="40%" max="70%">

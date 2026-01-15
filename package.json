@@ -11,19 +11,22 @@
     "make": "electron-forge make",
     "publish": "electron-forge publish",
     "lint": "eslint . --fix",
-    "cache:generate": "mikro-orm cache:generate --combined --config=./src/db/mikro-orm-cli.config.ts",
-    "migration:create-init": "mikro-orm migration:create --initial --config=./src/db/mikro-orm-cli.config.ts",
-    "migration:create": "mikro-orm migration:create --config=./src/db/mikro-orm-cli.config.ts",
-    "migration:up": "mikro-orm migration:up --config=./src/db/mikro-orm-cli.config.ts",
-    "postinstall": "prisma generate"
+    "migration:generate": "prisma migrate dev --name init",
+    "migration:deploy": "prisma migrate deploy",
+    "regenerate": "prisma generate",
+    "postinstall": "electron-rebuild -f -w better-sqlite3 & prisma generate"
   },
   "keywords": [],
   "author": "Valerii Kovach",
   "license": "MIT",
   "pnpm": {
     "onlyBuiltDependencies": [
+      "@prisma/engines",
+      "better-sqlite3",
       "electron",
-      "electron-winstaller"
+      "electron-winstaller",
+      "prisma",
+      "unrs-resolver"
     ]
   },
   "devDependencies": {
@@ -76,6 +79,7 @@
   "dependencies": {
     "@prisma/adapter-better-sqlite3": "^7.2.0",
     "@prisma/client": "^7.2.0",
+    "better-sqlite3": "^12.6.0",
     "electron-squirrel-startup": "^1.0.1"
   }
 }

@@ -18,7 +18,8 @@
       "components": ["src/renderer/components"],
       "containers": ["src/renderer/containers"],
       "extensions": ["src/renderer/extensions"],
-      "db": ["src/db"]
+      "db": ["src/db"],
+      "shared": ["src/shared"]
     },
     "forceConsistentCasingInFileNames": true,
     "strict": true
