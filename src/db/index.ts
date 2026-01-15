@@ -1,23 +1,16 @@
-import { MikroORM } from "@mikro-orm/core";
-import { Options } from "@mikro-orm/core";
-import { app } from "electron";
+import { PrismaBetterSqlite3 } from "@prisma/adapter-better-sqlite3";
+import { PrismaClient } from "../../generated/prisma/client";
 import path from "path";
+import { app } from "electron";
 
-import config from "./mikro-orm.config";
-import { BetterSqliteDriver } from "@mikro-orm/better-sqlite";
+export let prisma: PrismaClient;
 
-export let orm: MikroORM<BetterSqliteDriver>;
+export const initORM = () => {
+  const dbPath = path.join(app.getPath("userData"), "user.db");
 
-export const initORM = async (): Promise<void> => {
-  const dbPath = path.join(app.getPath("userData"), "database.sqlite");
+  const adapter = new PrismaBetterSqlite3({
+    url: `file:${dbPath}`,
+  });
 
-  try {
-    orm = await MikroORM.init<BetterSqliteDriver>({
-      ...config,
-      dbName: dbPath,
-    } as Options<BetterSqliteDriver>);
-  } catch (err: any) {
-    console.log("=== error connecting to database ====", err.message);
-    throw err;
-  }
+  prisma = new PrismaClient({ adapter });
 };

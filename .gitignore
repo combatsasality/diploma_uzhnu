@@ -91,7 +91,5 @@ typings/
 # Electron-Forge
 out/
 
-/temp/
-/tests/**/temp
-/tests/generated-entities
-*.sqlite
+/generated/prisma
+*.db

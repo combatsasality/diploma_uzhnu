@@ -14,23 +14,17 @@
     "cache:generate": "mikro-orm cache:generate --combined --config=./src/db/mikro-orm-cli.config.ts",
     "migration:create-init": "mikro-orm migration:create --initial --config=./src/db/mikro-orm-cli.config.ts",
     "migration:create": "mikro-orm migration:create --config=./src/db/mikro-orm-cli.config.ts",
-    "migration:up": "mikro-orm migration:up --config=./src/db/mikro-orm-cli.config.ts"
+    "migration:up": "mikro-orm migration:up --config=./src/db/mikro-orm-cli.config.ts",
+    "postinstall": "prisma generate"
   },
   "keywords": [],
-  "author": {
-    "name": "combatsasality",
-    "email": "m3sckt@gmail.com"
-  },
+  "author": "Valerii Kovach",
   "license": "MIT",
   "pnpm": {
     "onlyBuiltDependencies": [
-      "better-sqlite3",
       "electron",
       "electron-winstaller"
-    ],
-    "overrides": {
-      "better-sqlite3": "12.6.0"
-    }
+    ]
   },
   "devDependencies": {
     "@ant-design/icons": "^6.1.0",
@@ -45,6 +39,8 @@
     "@electron/fuses": "^1.8.0",
     "@eslint/js": "^9.39.2",
     "@tailwindcss/postcss": "^4.1.18",
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/node": "^25.0.9",
     "@types/react": "^19.2.8",
     "@types/react-dom": "^19.2.3",
     "@types/webpack-env": "^1.18.8",
@@ -64,6 +60,7 @@
     "node-loader": "^2.1.0",
     "postcss": "^8.5.6",
     "postcss-loader": "^8.2.0",
+    "prisma": "^7.2.0",
     "react": "^19.2.3",
     "react-dnd": "^16.0.1",
     "react-dnd-html5-backend": "^16.0.1",
@@ -77,16 +74,8 @@
     "typescript": "~5.9.3"
   },
   "dependencies": {
-    "@mikro-orm/better-sqlite": "^6.6.4",
-    "@mikro-orm/cli": "^6.6.4",
-    "@mikro-orm/core": "^6.6.4",
-    "@mikro-orm/migrations": "^6.6.4",
-    "@mikro-orm/sql-highlighter": "^1.0.1",
-    "better-sqlite3": "^12.6.0",
-    "electron-squirrel-startup": "^1.0.1",
-    "reflect-metadata": "^0.2.2"
-  },
-  "mikro-orm": {
-    "useTsNode": true
+    "@prisma/adapter-better-sqlite3": "^7.2.0",
+    "@prisma/client": "^7.2.0",
+    "electron-squirrel-startup": "^1.0.1"
   }
 }
