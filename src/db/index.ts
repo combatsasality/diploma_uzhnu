@@ -22,6 +22,8 @@ function copyDatabase(userDbPath: string) {
 export const initORM = async () => {
   const dbPath = path.join(app.getPath("userData"), "user.db");
 
+  // TODO: add prisma runtime migration
+
   copyDatabase(dbPath);
 
   const adapter = new PrismaBetterSqlite3({

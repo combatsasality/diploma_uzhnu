@@ -22,10 +22,5 @@ export const mainConfig: Configuration = {
       shared: path.resolve(__dirname, "src/shared/"),
     },
   },
-  externals: {
-    "@prisma/client": "commonjs2 @prisma/client",
-    "@prisma/adapter-better-sqlite3":
-      "commonjs2 @prisma/adapter-better-sqlite3",
-    "better-sqlite3": "commonjs2 better-sqlite3",
-  },
+  externals: {},
 };
