@@ -91,7 +91,7 @@ typings/
 # Electron-Forge
 out/
 
-/generated/prisma
-*.db
-
-!public/prisma/example.db
+/temp/
+/tests/**/temp
+/tests/generated-entities
+*.sqlite

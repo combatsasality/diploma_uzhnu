@@ -18,13 +18,14 @@
       "components": ["src/renderer/components"],
       "containers": ["src/renderer/containers"],
       "extensions": ["src/renderer/extensions"],
-      "db": ["src/db"],
-      "shared": ["src/shared"],
-      "contexts": ["src/renderer/contexts"],
-      "types/*": ["./@types/*"]
+      "db": ["src/db"]
     },
     "forceConsistentCasingInFileNames": true,
-    "strict": true
+    "strict": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "declaration": true,
+    "types": ["webpack-env"]
   },
   "include": ["src/**/*"]
 }
