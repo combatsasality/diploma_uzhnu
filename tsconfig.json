@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
     "jsx": "react-jsx",
-    "target": "esnext",
+    "target": "ES6",
     "allowJs": true,
-    "module": "esnext",
+    "module": "commonjs",
     "skipLibCheck": true,
     "esModuleInterop": true,
     "noImplicitAny": true,
@@ -17,15 +17,10 @@
       "i18n": ["src/renderer/i18n"],
       "components": ["src/renderer/components"],
       "containers": ["src/renderer/containers"],
-      "extensions": ["src/renderer/extensions"],
-      "db": ["src/db"]
+      "extensions": ["src/renderer/extensions"]
     },
     "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "declaration": true,
-    "types": ["webpack-env"]
+    "strict": true
   },
   "include": ["src/**/*"]
 }
