@@ -17,7 +17,9 @@
       "i18n": ["src/renderer/i18n"],
       "components": ["src/renderer/components"],
       "containers": ["src/renderer/containers"],
-      "extensions": ["src/renderer/extensions"]
+      "extensions": ["src/renderer/extensions"],
+      "db": ["src/db"],
+      "contexts": ["src/renderer/contexts"]
     },
     "forceConsistentCasingInFileNames": true,
     "strict": true

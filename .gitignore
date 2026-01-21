@@ -90,3 +90,13 @@ typings/
 
 # Electron-Forge
 out/
+
+
+*.tsbuildinfo
+*.tgz
+/*.sql
+.cache
+.turbo
+.rollup.cache
+rollup.config-*.mjs
+drizzle-seed/src/dev

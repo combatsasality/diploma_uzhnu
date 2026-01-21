@@ -10,7 +10,9 @@
     "package": "electron-forge package",
     "make": "electron-forge make",
     "publish": "electron-forge publish",
-    "lint": "eslint . --fix"
+    "lint": "eslint . --fix",
+    "migration:generate": "drizzle-kit generate",
+    "postinstall": "electron-rebuild -f -w better-sqlite3"
   },
   "keywords": [],
   "author": {
@@ -20,8 +22,13 @@
   "license": "MIT",
   "pnpm": {
     "onlyBuiltDependencies": [
+      "better-sqlite3",
       "electron",
       "electron-winstaller"
+    ],
+    "ignoredBuiltDependencies": [
+      "esbuild",
+      "unrs-resolver"
     ]
   },
   "devDependencies": {
@@ -36,12 +43,13 @@
     "@electron/fuses": "^1.8.0",
     "@eslint/js": "^9.39.2",
     "@tailwindcss/postcss": "^4.1.18",
-    "@types/react": "^19.2.8",
+    "@types/better-sqlite3": "^7.6.13",
     "@types/react-dom": "^19.2.3",
     "@typescript-eslint/eslint-plugin": "^8.53.0",
     "@typescript-eslint/parser": "^8.53.0",
     "@vercel/webpack-asset-relocator-loader": "1.7.3",
     "css-loader": "^6.11.0",
+    "drizzle-kit": "^0.31.8",
     "electron": "39.2.7",
     "eslint": "^9.39.2",
     "eslint-import-resolver-typescript": "^4.4.4",
@@ -60,6 +68,8 @@
   "dependencies": {
     "@ant-design/icons": "^6.1.0",
     "antd": "^6.2.0",
+    "better-sqlite3": "^12.6.2",
+    "drizzle-orm": "^0.45.1",
     "electron-squirrel-startup": "^1.0.1",
     "i18next": "^25.7.4",
     "react": "^19.2.3",

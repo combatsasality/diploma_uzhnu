@@ -50,6 +50,7 @@ export const rendererConfig: Configuration = {
       components: path.resolve(__dirname, "src/renderer/components/"),
       containers: path.resolve(__dirname, "src/renderer/containers/"),
       extensions: path.resolve(__dirname, "src/renderer/extensions/"),
+      contexts: path.resolve(__dirname, "src/renderer/contexts/"),
     },
   },
 };

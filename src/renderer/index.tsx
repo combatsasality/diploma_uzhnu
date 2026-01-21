@@ -8,7 +8,8 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 import "./index.css";
 import "./i18n";
 import { lightTheme } from "./theme";
-import { EditView } from "./containers";
+import { EditView } from "containers";
+import { ProjectProvider } from "contexts";
 
 const router = createHashRouter([
   {
@@ -23,15 +24,17 @@ if (rootEl) {
 
   root.render(
     <React.StrictMode>
-      <ConfigProvider
-        theme={{
-          ...lightTheme,
-        }}
-      >
-        <DndProvider backend={HTML5Backend}>
-          <RouterProvider router={router} />
-        </DndProvider>
-      </ConfigProvider>
+      <ProjectProvider>
+        <ConfigProvider
+          theme={{
+            ...lightTheme,
+          }}
+        >
+          <DndProvider backend={HTML5Backend}>
+            <RouterProvider router={router} />
+          </DndProvider>
+        </ConfigProvider>
+      </ProjectProvider>
     </React.StrictMode>
   );
 }

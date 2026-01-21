@@ -1,0 +1,1 @@
+CREATE UNIQUE INDEX `projectFile_absolutePath_unique` ON `projectFile` (`absolutePath`);
