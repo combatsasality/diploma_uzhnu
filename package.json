@@ -11,6 +11,7 @@
     "make": "electron-forge make",
     "publish": "electron-forge publish",
     "lint": "eslint . --fix",
+    "compile": "tsc -p . --noEmit ",
     "migration:generate": "drizzle-kit generate",
     "postinstall": "electron-rebuild -f -w better-sqlite3"
   },
@@ -24,7 +25,8 @@
     "onlyBuiltDependencies": [
       "better-sqlite3",
       "electron",
-      "electron-winstaller"
+      "electron-winstaller",
+      "ffmpeg-static"
     ],
     "ignoredBuiltDependencies": [
       "esbuild",
@@ -71,6 +73,7 @@
     "better-sqlite3": "^12.6.2",
     "drizzle-orm": "^0.45.1",
     "electron-squirrel-startup": "^1.0.1",
+    "ffmpeg-static": "^5.3.0",
     "i18next": "^25.7.4",
     "react": "^19.2.3",
     "react-dnd": "^16.0.1",

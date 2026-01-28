@@ -1,9 +1,28 @@
+import { InferSelectModel } from "drizzle-orm";
+import React, {
+  createContext,
+  useCallback,
+  useContext,
+  useMemo,
+  useState,
+} from "react";
+
 import { ProjectWithFiles } from "db";
-import React, { createContext, useContext, useMemo, useState } from "react";
+import { projectFileTable } from "db";
+
+export type ProjectFileWithMedia = InferSelectModel<typeof projectFileTable> & {
+  mediaId: string;
+  mediaUrl: string;
+  thumbnailUrl?: string;
+};
+
+export type ProjectWithMedia = Omit<ProjectWithFiles, "files"> & {
+  files: ProjectFileWithMedia[];
+};
 
 type ProjectContextValue = {
-  project: ProjectWithFiles | null;
-  setProject: (p: ProjectWithFiles | null) => void;
+  project: ProjectWithMedia | null;
+  setProject: (p: ProjectWithFiles | null) => Promise<void>;
   refresh: () => Promise<void>;
 };
 
@@ -19,22 +38,56 @@ export const useProject = () => {
   return ctx;
 };
 
+const registerMediaUrls = async (
+  project: ProjectWithFiles,
+): Promise<ProjectWithMedia> => {
+  const filesWithMedia = await Promise.all(
+    project.files.map(async (file) => {
+      const mediaId = await window.media.register(file.absolutePath);
+      const mediaUrl = await window.media.getUrl(mediaId);
+
+      const isVisual =
+        file.mimeType.startsWith("image/") ||
+        file.mimeType.startsWith("video/");
+
+      const thumbnailUrl = isVisual
+        ? await window.thumbnail.getUrl(mediaId, { width: 480, height: 270 })
+        : undefined;
+
+      return { ...file, mediaId, mediaUrl, thumbnailUrl };
+    }),
+  );
+
+  return { ...project, files: filesWithMedia };
+};
+
 export const ProjectProvider = ({
   children,
 }: {
   children: React.ReactNode;
 }) => {
-  const [project, setProject] = useState<ProjectWithFiles | null>(null);
+  const [project, setProjectState] = useState<ProjectWithMedia | null>(null);
 
-  const refresh = async () => {
+  const setProject = useCallback(async (p: ProjectWithFiles | null) => {
+    if (p) {
+      const projectWithMedia = await registerMediaUrls(p);
+      setProjectState(projectWithMedia);
+    } else {
+      setProjectState(null);
+    }
+  }, []);
+
+  const refresh = useCallback(async () => {
     if (project) {
       const freshProject = await window.project.get({ id: project.id });
-
-      setProject(freshProject);
+      await setProject(freshProject);
     }
-  };
+  }, [project, setProject]);
 
-  const value = useMemo(() => ({ project, setProject, refresh }), [project]);
+  const value = useMemo(
+    () => ({ project, setProject, refresh }),
+    [project, setProject, refresh],
+  );
 
   return (
     <ProjectContext.Provider value={value}>{children}</ProjectContext.Provider>

@@ -23,5 +23,6 @@ export const mainConfig: Configuration = {
   },
   externals: {
     "better-sqlite3": "commonjs2 better-sqlite3",
+    "ffmpeg-static": "commonjs2 ffmpeg-static",
   },
 };

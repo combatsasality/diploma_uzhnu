@@ -1,0 +1,1 @@
+DROP INDEX `projectFile_absolutePath_unique`;

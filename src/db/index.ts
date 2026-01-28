@@ -1,7 +1,9 @@
+import path from "path";
+
 import { BetterSQLite3Database, drizzle } from "drizzle-orm/better-sqlite3";
 import { app } from "electron";
-import path from "path";
 import { migrate } from "drizzle-orm/better-sqlite3/migrator";
+
 import * as schema from "./schema";
 import * as relations from "./relations";
 

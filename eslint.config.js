@@ -4,6 +4,9 @@ import tsParser from "@typescript-eslint/parser";
 import importPlugin from "eslint-plugin-import";
 
 export default [
+  {
+    ignores: [".webpack/**", "node_modules/**"],
+  },
   js.configs.recommended,
   {
     files: ["src/**/*.{js,ts,jsx,tsx}"],
@@ -44,11 +47,12 @@ export default [
           destructuredArrayIgnorePattern: "^_",
         },
       ],
-      "@typescript-eslint/no-explicit-any": "warn",
+      "@typescript-eslint/no-explicit-any": "off", // Too strict
       "@typescript-eslint/no-empty-object-type": "off",
+      "@typescript-eslint/no-require-imports": "off", // Allow require()
       "import/no-unresolved": "error",
       "import/order": ["error", { "newlines-between": "always" }],
-      "no-undef": "off", // TypeScript handles this
+      "no-undef": "off", // TypeScript handles this,
     },
     settings: {
       "import/resolver": {

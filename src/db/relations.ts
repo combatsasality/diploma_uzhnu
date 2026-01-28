@@ -1,4 +1,5 @@
 import { InferSelectModel, relations } from "drizzle-orm";
+
 import { projectTable, projectFileTable } from "./schema";
 
 export const projectRelations = relations(projectTable, ({ many }) => ({

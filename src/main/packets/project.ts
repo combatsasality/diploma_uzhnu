@@ -1,11 +1,12 @@
+import { eq } from "drizzle-orm";
+import { ipcMain } from "electron";
+
 import {
   drizzleDB,
   projectFileTable,
   projectTable,
   ProjectWithFiles,
 } from "db";
-import { eq, InferSelectModel } from "drizzle-orm";
-import { ipcMain } from "electron";
 
 export const initProjectPackets = () => {
   ipcMain.handle(
