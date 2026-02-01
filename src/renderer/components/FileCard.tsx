@@ -3,16 +3,7 @@ import { FileOutlined } from "@ant-design/icons";
 import { useDrag } from "react-dnd";
 
 import { Text } from "./Text";
-
-export interface FileWithUrls {
-  id: string;
-  filename: string;
-  mimeType: string;
-  size: number;
-  absolutePath: string;
-  mediaUrl?: string;
-  thumbnailUrl?: string;
-}
+import { FileWithUrls, TypeDND } from "types";
 
 interface FileCardProps {
   file: FileWithUrls;
@@ -28,7 +19,7 @@ export const FileCard: FC<FileCardProps> = ({ file }) => {
     { opacity: number }
   >(
     () => ({
-      type: "file",
+      type: TypeDND.FILE,
       item: { ...file },
       collect: (monitor) => ({
         opacity: monitor.isDragging() ? 0.5 : 1,

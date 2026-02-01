@@ -4,8 +4,9 @@ import { NativeTypes } from "react-dnd-html5-backend";
 import { Flex } from "antd";
 import { FileImageOutlined } from "@ant-design/icons";
 
-import { FileCard, FileWithUrls, Text } from "components";
+import { FileCard, Text } from "components";
 import { useProject } from "contexts";
+import { FileWithUrls } from "types";
 
 export const FileViewer: FC = () => {
   const { project, refresh } = useProject();

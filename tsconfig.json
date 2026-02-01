@@ -19,7 +19,8 @@
       "containers": ["src/renderer/containers"],
       "extensions": ["src/renderer/extensions"],
       "db": ["src/db"],
-      "contexts": ["src/renderer/contexts"]
+      "contexts": ["src/renderer/contexts"],
+      "types": ["src/renderer/types"]
     },
     "forceConsistentCasingInFileNames": true,
     "strict": true

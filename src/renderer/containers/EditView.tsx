@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Splitter } from "antd";
 
 import { Text } from "components";
-import { FileViewer } from "extensions";
+import { FileViewer, Timeline } from "extensions";
 import { useProject } from "contexts";
 
 const Panel = Splitter.Panel;
@@ -31,7 +31,7 @@ export const EditView = () => {
       </Panel>
 
       <Panel>
-        <Text>Edit View - Down side Panel</Text>
+        <Timeline />
       </Panel>
     </Splitter>
   );
